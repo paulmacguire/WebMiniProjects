@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import './Numbers.css';
 import { performDivision, performMultiply, performSubtraction, performSum } from './handleResult.js';
 
@@ -9,6 +9,21 @@ export default function Numbers() {
   const [equalResult, setEqualResult] = useState(false);
   
 
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        const equalButton = document.getElementById('equal');
+        equalButton.click();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyPress);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyPress);
+    };
+  }, []);
 
   const handleAC = () => {
     setOperator(null); // Borrar el operador
@@ -29,6 +44,15 @@ export default function Numbers() {
 
   };
 
+  const handleKeyDown = (event) => {
+    console.log("event.key:", event.key)
+    if (event.key === "Enter") {
+      event.preventDefault();
+      const equalButton = document.getElementById("equal");
+      equalButton.click();
+    }
+  };
+  
 
     // +numero ó -numero, ó +numero++numero ó -numero--numero, etc
   if ((operator === '-' || operator === '+') && (panelValue === '')) {
@@ -60,9 +84,9 @@ export default function Numbers() {
     }
   };
 
-  // console.log("panelValue:", panelValue);
-  // console.log("operator:", operator);
-  // console.log("previousValue:", previousValue);
+  console.log("panelValue:", panelValue);
+  console.log("operator:", operator);
+  console.log("previousValue:", previousValue);
 
 
   // Este componente se reutilizó de la entrega del proyecto. También se fue
@@ -216,7 +240,7 @@ export default function Numbers() {
                   className='operations'
                   onClick={() => {
 
-                    if (operator === 'times') {
+                    if (operator === 'times' && panelValue !== '') {
                       performMultiply(previousValue, panelValue)
                         .then(timesResult => {
                           setPanelValue(timesResult);
@@ -227,7 +251,7 @@ export default function Numbers() {
                           console.error('Error:', error);
                           // Manejar el error aquí si es necesario
                         });
-                    } else if (operator === 'divide') {
+                    } else if (operator === 'divide' && panelValue !== '') {
                       performDivision(previousValue, panelValue)
                         .then(divisionResult => {
                           setPanelValue(divisionResult);
@@ -238,7 +262,7 @@ export default function Numbers() {
                           console.error('Error:', error);
                           // Manejar el error aquí si es necesario
                         });
-                    }  else if (operator === '-') {
+                    }  else if (operator === '-' && panelValue !== '') {
                       performSubtraction(previousValue, panelValue)
                         .then(substractionResult => {
                           setPanelValue(substractionResult);
@@ -249,7 +273,7 @@ export default function Numbers() {
                           console.error('Error:', error);
                           // Manejar el error aquí si es necesario
                         });
-                    } else if (operator === '+') {
+                    } else if (operator === '+' && panelValue !== '') {
                       performSum(previousValue, panelValue)
                         .then(sumResult => {
                           setPanelValue(sumResult);
