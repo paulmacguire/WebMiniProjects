@@ -1,0 +1,263 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+body {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  background-image: url("../imgs/wallpaperbetter.com_4096x2304.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  @media screen and (max-width: 1200px) and (min-width: 800px) {
+    background-image: url("../imgs/wallpaperbetter.com_4096x2304.jpg");
+    
+  }
+}
+
+h1 {
+  font-size: 6em;
+  margin: 0.67em 0;
+  color: white;
+}
+
+h2 {
+  font-size: 1.4em;
+  margin: 0.67em 0;
+  color: white;
+}
+
+p {
+  font-size: 1em;
+  color: white;
+  margin: 0.67em 20px;
+  font-family: 'Raleway', sans-serif;
+}
+
+p a {
+  color: rgba(255, 255, 255, 0.582);
+  text-decoration: none;
+  font-family: 'Raleway', sans-serif;
+}
+
+.header #p-header {
+  font-size: 1.5em;
+  color: white;
+  margin: 0.67em 20px;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 63px;
+  background: #31303027;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+
+}
+
+
+.navbar {
+  display: flex;
+  margin-right: 10px;
+}
+
+.navbar a {
+  display: block;
+  padding: 25px 20px;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+}
+
+.navbar a:hover {
+  background: rgba(26, 34, 36, 0.212);
+  color: white;
+  transition: 0.7s;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  height: 50vh;
+  /* background: url(../imgs/fondo-index2.jpeg) no-repeat; */
+  background-size: 100% 100%;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.logo {
+  margin-left: 30px;
+  background-image: url("../imgs/vuelo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+  width: 50px;
+  height: 40px;
+  transition: background-image 0.5s ease-in-out;
+}
+.logo a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  display: block;
+  text-indent: -9999px;
+}
+
+.logo:hover {
+  background-image: url("../imgs/vuelo2.png");
+  color: white;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 1px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 20px 40px;
+  margin: 10px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  background: rgba(26, 34, 36, 0.596);
+}
+
+.btn:hover {
+  background: rgb(124, 123, 123);
+  color: white;
+  transition: 0.7s;
+}
+
+footer {
+  background: transparent;
+  background-color: #3130302f;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Raleway', sans-serif;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.split-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: #313030;
+  background-size: cover;
+  background-color: inherit;
+  background-clip: padding-box;
+}
+
+.split-left,
+.split-right {
+  width: 50%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.split-left img {
+  display: block;
+  margin: 0 auto 20px;
+  max-width: 100%;
+  height: 200px;
+  width: 400px;
+}
+
+.split-right img {
+  display: block;
+  margin: 0 auto 20px;
+  max-width: 100%;
+  height: 200px;
+  width: 400px;
+}
+
+.content-split {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 1px;
+}
+
+.cards {
+  margin: 0 auto;
+  max-width: 95%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  font-family: 'Raleway', sans-serif;
+  align-items: center;
+}
+
+.card {
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  margin-top: 100px;
+  transition: transform 0.2s ease-in-out;
+  text-shadow: rgb(0, 0, 0) 0.1em 0.1em 0.2em;
+  
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+.card-image {
+  width: 100%;
+  display: block;
+}
+
+.card-content {
+  line-height: 1.5;
+  font-size: 15px;
+  padding: 15px;
+  background: #00000088; 
+}
+
+.card-content ul {
+  flex-direction: column;
+  justify-content: flex-start; /* Alinea la lista a la izquierda */
+  align-items: flex-start;}
+
+.card-content > p:first-of-type {
+  margin-top: 0;
+}
+
+.card-content > p:last-of-type {
+  margin-bottom: 0;
+}
+
+.card-info {
+  padding: 15px;
+  display: flex;
+  color: #fffcfc;
+  justify-content: space-between;
+  background: #000000;
+  border-bottom: 2px solid #0000007c;
+}
+
+ul {
+  list-style-type: disc; /* Tipo de viñeta */
+  margin: 0; /* Margen exterior */
+  padding: 0 0 0 20px; /* Relleno interior */
+  color: white;
+}

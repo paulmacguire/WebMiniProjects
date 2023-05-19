@@ -1,0 +1,218 @@
+@font-face {
+  font-family: "MemphisRiver";
+  src: url(../fonts/Memphis\ River.otf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+body {
+  text-align: center;
+  font-family: sans-serif;
+  background-image: url("../imgs/islapascua.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "Raleway", sans-serif;
+}
+
+h1 {
+  font-family: "MemphisRiver", sans-serif;
+  font-size: 6.5em;
+  margin: 0.67em 0;
+  color: white;
+  text-shadow: rgba(0, 0, 0, 0.329) 0.1em 0.1em 0.2em;
+}
+
+h2 {
+  font-size: 1.4em;
+  margin: 0.67em 0;
+  color: white;
+  text-shadow: rgba(0, 0, 0, 0.329) 0.1em 0.1em 0.2em;
+}
+
+p {
+  font-size: 1em;
+  color: white;
+  margin: 0.67em 40px;
+  text-shadow: rgba(0, 0, 0, 0.329) 0.1em 0.1em 0.2em;
+}
+
+p a {
+  color: rgba(255, 255, 255, 0.582);
+  text-decoration: none;
+}
+
+.header #p-header {
+  font-size: 1.5em;
+  color: white;
+  margin: 0.67em 20px;
+  text-shadow: rgba(0, 0, 0, 0.329) 0.1em 0.1em 0.2em;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 63px;
+  background: #31303027;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
+
+.navbar {
+  display: flex;
+  margin-right: 10px;
+}
+
+.navbar a {
+  display: block;
+  padding: 25px 20px;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+}
+
+.navbar a:hover {
+  background: rgba(26, 34, 36, 0.288);
+  color: white;
+  transition: 0.7s;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  height: 50vh;
+  background: transparent;
+  background-size: 100% 100%;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.logo {
+  margin-left: 30px;
+  background-image: url("../imgs/vuelo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+  width: 50px;
+  height: 40px;
+  transition: background-image 0.5s ease-in-out;
+}
+.logo a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  display: block;
+  text-indent: -9999px;
+}
+
+.logo:hover {
+  background-image: url("../imgs/vuelo2.png");
+  color: white;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 1px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 20px 40px;
+  margin: 10px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  background: rgba(26, 34, 36, 0.39);
+}
+
+.btn:hover {
+  background: rgba(124, 123, 123, 0.226);
+  color: white;
+  transition: 0.7s;
+}
+
+footer {
+  background: transparent;
+  background-color: #3130302f;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.content-split {
+  background-color: transparent;
+  border-radius: 10px;
+  margin-left: 500px;
+  margin-right: 500px;
+}
+
+.split-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: transparent;
+  background-size: cover;
+  background-clip: padding-box;
+}
+
+.split-left,
+.split-right {
+  width: 50%;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: transform 0.2s ease-in-out;
+  
+}
+
+.split-left img {
+  display: block;
+  margin: 0 auto 20px;
+  max-width: 100%;
+  height: 200px;
+  width: 400px;
+  
+}
+
+.split-left:hover {
+  transform: scale(1.05);
+}
+
+.split-right:hover {
+  transform: scale(1.05);
+}
+
+.split-right img {
+  display: block;
+  margin: 0 auto 20px;
+  max-width: 100%;
+  height: 200px;
+  width: 400px;
+}
+
+.content-split {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 1px;
+}
