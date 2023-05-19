@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import './Numbers.css';
-import { performSum } from './handleResult.js';
-import { performMultiply } from './handleResult.js';
-import { performSubtraction } from './handleResult.js';
-import { performDivision } from './handleResult.js';
+import { performDivision, performMultiply, performSubtraction, performSum } from './handleResult.js';
 
 export default function Numbers() {
   const [panelValue, setPanelValue] = useState('');
   const [operator, setOperator] = useState(null);
   const [previousValue, setPreviousValue] = useState(null)
-  const [buttonPressed, setButtonPressed] = useState(false);
+  const [equalResult, setEqualResult] = useState(false);
+  
 
 
   const handleAC = () => {
@@ -19,14 +17,18 @@ export default function Numbers() {
   };
 
   const handleDEL = () => {
-    setPanelValue(panelValue.slice(0, -1)); // Eliminar el último carácter del panel
+    if (panelValue == "ERROR"){
+      setPanelValue(panelValue.slice(0, -1)); // Eliminar el último carácter del panel
     
-    if (panelValue === operator) {
-      setOperator(null);
-      setPanelValue('');
-
+      if (panelValue === operator) {
+        setOperator(null);
+        setPanelValue('');
+  
+      }
     }
+
   };
+
 
     // +numero ó -numero, ó +numero++numero ó -numero--numero, etc
   if ((operator === '-' || operator === '+') && (panelValue === '')) {
@@ -58,11 +60,13 @@ export default function Numbers() {
     }
   };
 
-  console.log("panelValue:", panelValue);
-  console.log("operator:", operator);
-  console.log("previousValue:", previousValue);
+  // console.log("panelValue:", panelValue);
+  // console.log("operator:", operator);
+  // console.log("previousValue:", previousValue);
 
 
+  // Este componente se reutilizó de la entrega del proyecto. También se fue
+  // debuggeando con ChatGPT y Github Copilot. 
   return (
     <>
     <div className='container-main'>
@@ -89,9 +93,30 @@ export default function Numbers() {
                 >
                   <p>&divide;</p>
                 </button>
-                <button onClick={() => setPanelValue(panelValue + '7')}><p>7</p></button>
-                <button onClick={() => setPanelValue(panelValue + '8')}><p>8</p></button>
-                <button onClick={() => setPanelValue(panelValue + '9')}><p>9</p></button>
+                <button onClick={() => {if (operator !== "=") {
+                  setPanelValue(panelValue + '5')
+                } else if (operator === "=") {
+                  setPanelValue("")
+                  setOperator(null)
+                  setPreviousValue(null)
+                }
+                }}><p>5</p></button>
+                <button onClick={() => {if (operator !== "=") {
+                  setPanelValue(panelValue + '6')
+                } else if (operator === "=") {
+                  setPanelValue("")
+                  setOperator(null)
+                  setPreviousValue(null)
+                }
+                }}><p>6</p></button>
+                <button onClick={() => {if (operator !== "=") {
+                  setPanelValue(panelValue + '9')
+                } else if (operator === "=") {
+                  setPanelValue("")
+                  setOperator(null)
+                  setPreviousValue(null)
+                }
+                }}><p>9</p></button>
                 <button
                   className='operations'
                   onClick={() => {
@@ -102,9 +127,30 @@ export default function Numbers() {
                 >
                   <p>&times;</p>
                 </button>
-                <button onClick={() => setPanelValue(panelValue + '4')}><p>4</p></button>
-                <button onClick={() => setPanelValue(panelValue + '5')}><p>5</p></button>
-                <button onClick={() => setPanelValue(panelValue + '6')}><p>6</p></button>
+                <button onClick={() => {if (operator !== "=") {
+                  setPanelValue(panelValue + '4')
+                } else if (operator === "=") {
+                  setPanelValue("")
+                  setOperator(null)
+                  setPreviousValue(null)
+                }
+                }}><p>4</p></button>
+                <button onClick={() => {if (operator !== "=") {
+                  setPanelValue(panelValue + '5')
+                } else if (operator === "=") {
+                  setPanelValue("")
+                  setOperator(null)
+                  setPreviousValue(null)
+                }
+                }}><p>5</p></button>
+                <button onClick={() => {if (operator !== "=") {
+                  setPanelValue(panelValue + '6')
+                } else if (operator === "=") {
+                  setPanelValue("")
+                  setOperator(null)
+                  setPreviousValue(null)
+                }
+                }}><p>6</p></button>
                 <button
                   className='operations'
                   onClick={() => {
@@ -115,9 +161,30 @@ export default function Numbers() {
                 >
                   <p>-</p>
                 </button>
-                <button onClick={() => setPanelValue(panelValue + '1')}><p>1</p></button>
-                <button onClick={() => setPanelValue(panelValue + '2')}><p>2</p></button>
-                <button onClick={() => setPanelValue(panelValue + '3')}><p>3</p></button>
+                <button onClick={() => {if (operator !== "=") {
+                  setPanelValue(panelValue + '1')
+                } else if (operator === "=") {
+                  setPanelValue("")
+                  setOperator(null)
+                  setPreviousValue(null)
+                }
+                }}><p>1</p></button>
+                <button onClick={() => {if (operator !== "=") {
+                  setPanelValue(panelValue + '2')
+                } else if (operator === "=") {
+                  setPanelValue("")
+                  setOperator(null)
+                  setPreviousValue(null)
+                }
+                }}><p>2</p></button>
+                <button onClick={() => {if (operator !== "=") {
+                  setPanelValue(panelValue + '3')
+                } else if (operator === "=") {
+                  setPanelValue("")
+                  setOperator(null)
+                  setPreviousValue(null)
+                }
+                }}><p>3</p></button>
                 <button
                   className='operations'
                   onClick={() => {
@@ -128,10 +195,22 @@ export default function Numbers() {
                 >
                   <p>+</p>
                 </button>
-                <button id='zero' onClick={() => setPanelValue(panelValue + '0')}><p>0</p></button>
-                <button onClick={() => {
-                  handleNumberClick('.');
-              }}><p>.</p></button>
+                <button id="zero" onClick={() => {if (operator !== "=" ) {
+                  setPanelValue(panelValue + '0')
+                } else if (operator === "=") {
+                  setPanelValue("")
+                  setOperator(null)
+                  setPreviousValue(null)
+                }
+                }}><p>0</p></button>
+                <button onClick={() => {if (operator !== "=") {
+                  handleNumberClick('.')
+                } else if (operator === "=") {
+                  setPanelValue("")
+                  setOperator(null)
+                  setPreviousValue(null)
+                }
+                }}><p>.</p></button>
                 <button
                   id='equal'
                   className='operations'
@@ -141,8 +220,8 @@ export default function Numbers() {
                       performMultiply(previousValue, panelValue)
                         .then(timesResult => {
                           setPanelValue(timesResult);
-                          setOperator(null);
-                          setPreviousValue(timesResult);
+                          // setOperator(null);
+                          setPreviousValue(null);
                         })
                         .catch(error => {
                           console.error('Error:', error);
@@ -152,8 +231,8 @@ export default function Numbers() {
                       performDivision(previousValue, panelValue)
                         .then(divisionResult => {
                           setPanelValue(divisionResult);
-                          setOperator(null);
-                          setPreviousValue(divisionResult);
+                          // setOperator(null);
+                          setPreviousValue(null);
                         })
                         .catch(error => {
                           console.error('Error:', error);
@@ -163,8 +242,8 @@ export default function Numbers() {
                       performSubtraction(previousValue, panelValue)
                         .then(substractionResult => {
                           setPanelValue(substractionResult);
-                          setOperator(null);
-                          setPreviousValue(substractionResult);
+                          // setOperator(null);
+                          setPreviousValue(null);
                         })
                         .catch(error => {
                           console.error('Error:', error);
@@ -174,8 +253,8 @@ export default function Numbers() {
                       performSum(previousValue, panelValue)
                         .then(sumResult => {
                           setPanelValue(sumResult);
-                          setOperator(null);
-                          setPreviousValue(sumResult);
+                          // setOperator(null);
+                          setPreviousValue(null);
                         })
                         .catch(error => {
                           console.error('Error:', error);
@@ -185,9 +264,9 @@ export default function Numbers() {
                       console.log("Operación Invalida");
                     }
 
-                    // setOperator('=');
-                    // setPreviousValue(panelValue);
-                    // setPanelValue('');
+                    setOperator('=');
+                    setPreviousValue('');
+                    setPanelValue('');
                   }}
                 >
                   <p>=</p>

@@ -1,5 +1,11 @@
 // operations.js
 
+
+
+// Gran parte de estas funciones fueron realizadas mediante ChatGPT, sin embargo
+// se realizaron modificaciones para que se ajustaran a las necesidades de la tarea,
+// ya que tiraba igual varios errores el código que se generaba en ChatGPT.
+
 // Función para realizar la operación de suma utilizando GET
 export const performSum = async (num1, num2) => {
   if (num1.includes("+")) {
